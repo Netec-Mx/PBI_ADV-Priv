@@ -10,16 +10,16 @@ Bienvenido a la **plataforma de laboratorios** del curso **Power BI Avanzado**. 
 
 Cada uno de estos laboratorios están diseñados para ofrecerte una experiencia práctica. Haz clic en los enlaces para comenzar.
 
-01. ### [Práctica 1. Diseño de modelo complejo a partir de múltiples fuentes con relaciones inactivas](./Laboratorio_1.md) 
+01. ### [Práctica 1. Diseño de modelo complejo a partir de múltiples fuentes con relaciones inactivas](./Laboratorio1.md) 
     - ⏱️ **Duración estimada**: 70 min.
 
-02. ### [Práctica 2. Construcción de un set de medidas avanzadas para análisis financiero y productivo](./Laboratorio_2.md)
+02. ### [Práctica 2. Construcción de un set de medidas avanzadas para análisis financiero y productivo](./Laboratorio2.md)
     - ⏱️ **Duración estimada**: 70 min.
 
-03. ### [Práctica 3. Aplicar RLS sobre un modelo y optimizar consultas lentas con análisis de rendimiento](./Laboratorio_3.md)
+03. ### [Práctica 3. Aplicar RLS sobre un modelo y optimizar consultas lentas con análisis de rendimiento](./Laboratorio3.md)
     - ⏱️**Duración estimada**: 70 min.
 
-04. ### [Práctica 4. Dashboard inteligente con segmentación automática de clientes y predicción de ingresos futuros](./Laboratorio_4.md)
+04. ### [Práctica 4. Dashboard inteligente con segmentación automática de clientes y predicción de ingresos futuros](./Laboratorio4.md)
     - ⏱️**Duración estimada**: 70 min.
 
 ---
