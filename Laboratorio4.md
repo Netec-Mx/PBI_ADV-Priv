@@ -1,52 +1,57 @@
-# Laboratorio #4: Dashboard con predicción de ingresos futuros.
+# Práctica 4. Dashboard inteligente con segmentación automática de clientes y predicción de ingresos futuros
 
-## Planteamiento del ejercicio.
+## 📝 Planteamiento de la práctica:
 
-> Como parte de las actividades de analista de Power BI, le piden crear un panel que le permita ver la información mas relevante, y apartir de esta información poder tomar desiciones. 
+Como parte de las actividades de analista de Power BI, te piden crear un panel que te permita ver la información más relevante y, a partir de esta, poder tomar decisiones.
 
->Esta información no siempre esta disponible, y en ocasiones buscamos justamente predecir estos valores antes de tenerlos. Por lo apartir del informe que se elaboró anteriormente en el ejercicio previo, lo modificaremos para agregar dos paginas nuevas y estas paginas las asignaremos a un panel.
+Esta información no siempre está disponible y, en ocasiones, justamente buscamos predecir estos valores antes de tenerlos. Por ello, a partir del informe que elaboraste anteriormente en el ejercicio previo, lo modificaremos para agregar dos páginas nuevas, y estas páginas las asignaremos a un panel.
 
-## Objetivo
+## 🎯 Objetivos:
+Al finalizar la práctica, serás capaz de:
+- Crear un dashboard con análisis predictivo.
 
-> Crear un Dashboard con analisis predictivo.
+## 🕒 Duración aproximada:
+- 70 minutos.
 
-## Tiempo estimado
-
-> Dependiendo la experiencia previa que tenga Power BI, puede que algunas de las actividades le resulten conocidas, permitiendo que elabore esta actividad en una menor cantidad de tiempo, en caso contrario, puede llegar a tomarle hasta 70 minutos para poder realizar este ejercicio de forma exitosa.
-
-## Actividades a realizar
+## 🔍 Objetivo visual:
 
 ![Actividades a realizar.](./images/Diagrama%20Ejercicio%204.png)
 
-## Modificar el reporte.
+---
 
-Ingrege al servicio de Power BI, una vez dentro de este servicio, vaya al informe que se subio en el ejercicio pasado y seleccione el icono de edicion para proceder a modificarlo.
+**[⬅️ Atrás](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio3.html)** | **[🗂️ Lista general](https://netec-mx.github.io/PBI_ADV-Priv/)**
+
+---
+## Instrucciones:
+### Tarea 1. Modificar el reporte.
+
+**Paso 1.** Ingresa al servicio de Power BI. Una vez dentro, ve al informe que subiste en el ejercicio pasado y selecciona el ícono de edición para proceder a modificarlo.
 
 ![Actividades a realizar.](./images/E4-1.png)
 
-Genere una nueva pagina y denominela como dispersión, en ella inserte un grafico de dispersión que abarque toda la pagina.
+**Paso 2.** Genera una nueva página y asígnale el nombre **Dispersión**. En ella, inserta un gráfico de dispersión que abarque toda la página.
 
 ![Actividades a realizar.](./images/E4-2.png)
 
 Este visual debe contener los siguientes datos:
 
-* Eje X: Sales | Sales
-* Eje Y: Sales | Profit Margin
-* Leyenda: Reseller | Business Type
-* Tamaño: Sales | Quantity
-* Eje de reproducción: Date | Quarter
+- Eje X: Sales | Sales
+- Eje Y: Sales | Profit Margin
+- Leyenda: Reseller | Business Type
+- Tamaño: Sales | Quantity
+- Eje de reproducción: Date | Quarter
 
-Agregue a los filtros de la pagina la catgeoria Product | Category y seleccione, por ejemplo, Bikes.
+**Paso 3.** Agrega a los filtros de la página la categoría Product | Category y selecciona, por ejemplo, Bikes.
 
-Comience con la animación y observe como la información se va actualizando con el pasar del tiempo.
+Comienza con la animación y observa cómo la información se va actualizando con el pasar del tiempo.
 
-Finalizando la animación seleccione cualquiera de las burbujas para ver la información a detalle y el recorrido que realiza a lo largo del tiempo.
+**Paso 4.** Al finalizar la animación, selecciona cualquiera de las burbujas para ver la información en detalle y el recorrido que realiza a lo largo del tiempo.
 
-Cambie el valor del filtro a otro tipo de producto y observe los resultados.
+**Paso 5.** Cambia el valor del filtro a otro tipo de producto y observa los resultados.
 
 ![Actividades a realizar.](./images/E4-3.png)
 
-Genere una nueva pagina y denominela como Predicción, en ella inserte un grafico de lineas que abarque toda la pagina.
+**Paso 6.** Genera una nueva página y asígnale el nombre **Predicción**. En ella, inserta un gráfico de líneas que abarque toda la página.
 
 ![Actividades a realizar.](./images/E4-2.png)
 
@@ -55,24 +60,26 @@ Este visual debe contener los siguientes datos:
 * Eje X: Date | Date
 * Eje Y: Sales | Sales
 
-Agregue a los filtros de la pagina la catgeoria Date | Year y seleccione los años fiscales 2019 y 2020.
+**Paso 7.** Agrega a los filtros de la página la categoría Date | Year y selecciona los años fiscales 2019 y 2020.
 
-Agregue un control deslizante para poder ver mas o menos información dependiendo lo que desee ver.
+**Paso 8.** Agrega un control deslizante para poder ver más o menos información, dependiendo de lo que desees analizar.
 
-Agregue la opción de prevision y configurela de tal forma que mida lo siguiente:
+**Paso 9.** Agrega la opción de Previsión y configúrala de la siguiente forma:
 
-* Calcule los siguientes meses hasta llegar a finales de 2020, considere los datos de todo un año y el rango de confianza sea de un 80%.
+- Calcula los meses siguientes hasta llegar a finales de 2020.
+- Considera los datos de todo un año.
+- Establece el rango de confianza en un 80%.
 
 ![Actividades a realizar.](./images/E4-4.png)
 
-El resultado al final debe quedar algo similar a lo siguiente:
+El resultado final debe verse similar a lo siguiente:
 
 ![Actividades a realizar.](./images/E4-5.png)
 
-## Crear un panel y asignarle el contenido.
+### Tarea 2. Crear un panel y asignarle el contenido.
 
-De lo anterior, ahora solamente falta agregarlo a un dashboard, para ello ancle las horas del reporte en un nuevo panel para mantener los elementos interactivos dentro del panel.
+**Paso 1.** A partir de lo anterior, ahora solo falta agregar el contenido a un dashboard. Para ello, ancla las hojas del reporte en un nuevo panel, con el fin de mantener los elementos interactivos dentro de él.
 
-> Recuerde que dependiendo que contenido fija en un panel, este elemento perderá los elementos interactivos. Si requiere mantener los elementos como estan (incluyendo sus interacciones fije siempre la hoja en lugar de la visualizacion.)
+> *💡 **Nota:** Recuerda que, dependiendo del contenido que fijes en un panel, ese elemento puede perder su interactividad. Si deseas mantener los elementos tal como están (incluyendo sus interacciones), fija siempre la hoja completa en lugar de la visualización individual.*
 
-Una vez haya fijado el contenido en el panel ingrese en el y verifique el contenido.
+**Paso 2.** Una vez hayas fijado el contenido en el panel, ingresa en él y verifica que se haya mostrado correctamente.
