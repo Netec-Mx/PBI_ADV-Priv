@@ -1,124 +1,124 @@
-# Laboratorio #1: Diseño de modelo complejo a partir de múltiples fuentes con relaciones inactivas
+# Práctica 1. Diseño de modelo complejo a partir de múltiples fuentes con relaciones inactivas
 
-## Planteamiento del ejercicio.
+## 📝 Planteamiento de la práctica:
 
-> Como parte de las actividades de analista de Power BI, le piden crear un modelo apartir de distintas fuentes de datos, conectandolas entre si mediante las relaciones en el modelo y, creando algunas medidas que permitan analizar la información usando relaciones desactivadas.
+Como parte de las actividades de analista de Power BI, te piden crear un modelo a partir de distintas fuentes de datos, conectándolas entre sí mediante relaciones en el modelo y creando algunas medidas que permitan analizar la información usando relaciones desactivadas.
 
-## Objetivo
+## 🎯 Objetivos:
+Al finalizar la práctica, serás capaz de:
+- Crear distintas medidas en DAX para repasar las funciones financieras.
 
-> Crear distintas medidas de DAX para repesar las funciones financieras.
+## 🕒 Duración aproximada:
+- 70 minutos.
 
-## Tiempo estimado
-
-> Dependiendo la experiencia previa que tenga Power BI, puede que algunas de las formulas les resultes conocidas, permitiendo que elabore esta actividad en una menor cantidad de tiempo, en caso contrario, puede llegar a tomarle hasta 70 minutos para poder realizar este ejercicio de forma exitosa.
-
-## Actividades a realizar
+## 🔍 Objetivo visual:
 
 ![Actividades a realizar.](./images/Diagrama%20Ejercicio%201.png)
 
-## Obtener los datos
+---
 
-Antes de poder crear el modelo, es necesario tener acceso a los datos y, por lo tanto, poder manipularlos para que puedan ser utilizados para el analisis y el modelado.
+**[Lista general 🗂️](https://netec-mx.github.io/PBI_ADV-Priv/)** | **[Siguiente ➡️](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio2.html)**
 
-Para ello, recordemos que la información puede venir de distintos lugares, archivos locales, archivos remotos (en ubicaciones de la empresa o bien en internet), servicios especializados (Servicios de Microsfot, AWS, Google, entre un largo etcetera).
+---
 
-En ese sentido, de la siguiente lista se muestran los archivos que se estaran utilizando, asi como su ubicación para poder acceder a ellos.
+## Instrucciones:
+### Obtener los datos
 
-* Empleados.xlsx - Este archivo se encuentra dentro de la carpeta documentos de la maquina virtual.
+Antes de poder crear el modelo, es necesario tener acceso a los datos y, por lo tanto, poder manipularlos para que puedan ser utilizados en el análisis y el modelado.
 
-* Fechas.xlsx - Este archivo se encuentra dentro de la carpeta documentos de la maquina virtual.
+Para ello, recordemos que la información puede provenir de distintos lugares: archivos locales, archivos remotos (ubicaciones internas de la empresa o en internet), o servicios especializados (como los de Microsoft, AWS, Google, entre muchos otros).
 
-* Maquinaria - Este archivo se encuentra dentro de Google Drive puedes acceder directamente usando la siguiente liga.
-https://docs.google.com/spreadsheets/d/1-qGpKZzbVLMBqmVqSqjrk0n8WeymT-gg/edit?usp=sharing&ouid=107815825877798659253&rtpof=true&sd=true
+En ese sentido, a continuación se muestra la lista de archivos que estarás utilizando, así como su ubicación para poder acceder a ellos.
 
-* Minas - Este archivo se encuentra en una cuenta de almacenamiento de Azure puedes acceder a el utilizando la siguiente liga.
-https://accesos.blob.core.windows.net/recursos/Minas.xlsx?st=2025-07-14T23:50:52Z&se=2025-12-31T08:05:52Z&si=Accesos recursos&spr=https&sv=2024-11-04&sr=b&sig=VS5bQ3R4XEDILXpMcyOc2xkGO8hP8Xu9Cof2OkoFshA%3D
+1. **Empleados.xlsx:** Se encuentra dentro de la carpeta _Documentos_ de la máquina virtual.
+2. **Fechas.xlsx:** Se encuentra dentro de la carpeta _Documentos_ de la máquina virtual.
+3. **Maquinaria:** Se encuentra en Google Drive. Puedes acceder al archivo mediante la siguiente liga: [Maquinaria](https://docs.google.com/spreadsheets/d/1-qGpKZzbVLMBqmVqSqjrk0n8WeymT-gg/edit?usp=sharing&ouid=107815825877798659253&rtpof=true&sd=true)
+4. **Minas:** Se encuentra en una cuenta de almacenamiento de Azure. Puedes acceder al archivo mediante esta liga: [Minas.xlsx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Faccesos.blob.core.windows.net%2Frecursos%2FMinas.xlsx%3Fst%3D2025-07-14T23%3A50%3A52Z%26se%3D2025-12-31T08%3A05%3A52Z%26si%3DAccesos%2520recursos%26spr%3Dhttps%26sv%3D2024-11-04%26sr%3Db%26sig%3DVS5bQ3R4XEDILXpMcyOc2xkGO8hP8Xu9Cof2OkoFshA%253D&wdOrigin=BROWSELINK)
+5. **Minerales.pdf:** Se encuentra dentro de la carpeta _Documentos_ de la máquina virtual.
+6. **Producción.xlsx:** Se encuentra en una cuenta de almacenamiento de Azure. Puedes acceder al archivo mediante esta liga: [Producción.xlsx](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Faccesos.blob.core.windows.net%2Frecursos%2FProducci%25C3%25B3n.xlsx%3Fst%3D2025-07-15T00%3A55%3A37Z%26se%3D2025-12-31T09%3A10%3A37Z%26si%3DAccesos%2520recursos%26spr%3Dhttps%26sv%3D2024-11-04%26sr%3Db%26sig%3DPBhZWSjYVXEtp3FkcLZvKDRfZvG80h6YORu8VzPqoqQ%253D&wdOrigin=BROWSELINK)
+7. **Turnos.pdf:** Se encuentra dentro de la carpeta _Documentos_ de la máquina virtual.
 
-* Minerales.pdf - Este archivo se encuentra dentro de la carpeta documentos de la maquina virtual.
+  > 🔄 **Recuerda:** Es necesario realizar transformaciones para poder utilizar correctamente los datos en el modelo.
 
-* Producción.xlsx - Este archivo se encuentra dentro de una cuenta de almacenamiento de Azure puedes acceder a el utilizando la siguiente liga.
-https://accesos.blob.core.windows.net/recursos/Producci%C3%B3n.xlsx?st=2025-07-15T00:55:37Z&se=2025-12-31T09:10:37Z&si=Accesos recursos&spr=https&sv=2024-11-04&sr=b&sig=PBhZWSjYVXEtp3FkcLZvKDRfZvG80h6YORu8VzPqoqQ%3D
+### Crear relaciones
 
-* Turnos.pdf - Este documento se encuentra dentro de la carpeta documentos de la maquina virtual.
-
-Recuerda que hay que hacer transformaciones para poder utilizar los datos.
-
-## Crear relaciones
-
-Hasta este punto deberiamos tener 7 consultas en el modelo, deberia verse hasta el momento algo parecido a lo siguiente:
+Hasta este punto, deberías tener 7 consultas en el modelo. Debería verse, hasta el momento, algo parecido a lo siguiente:
 
 ![Actividades a realizar.](./images/E1-1.png)
 
-Ahora genere las relaciones entre las siguientes tablas:
+Ahora, genera las relaciones entre las siguientes tablas:
 
-* Empleados[IDEmpleado] - Producción[IDEmpleado]
-
-* Maquinaria[IDMaquinaria] - Producción [IDMaquinaria]
-
-* Minas [IDMina] - Minas [IDMina]
-
-* Minerales [IDCategoriaMineral] - Producción [IDCategoriaMineral]
-
-* Turnos [IDTurno] - Producción [IDTurno]
+- Empleados[IDEmpleado] → Producción[IDEmpleado]
+- Maquinaria[IDMaquinaria] → Producción[IDMaquinaria]
+- Minas[IDMina] → Producción[IDMina]
+- Minerales[IDCategoriaMineral] → Producción[IDCategoriaMineral]
+- Turnos[IDTurno] → Producción[IDTurno]
 
 ![Actividades a realizar.](./images/E1-2.png)
 
 ---
 
-Ahora genere las siguientes relaciones
+Ahora, genera las siguientes relaciones adicionales:
 
-* Fechas [Fecha] - Producción[Fecha extracción]
-
-* Fechas [Fecha] - Producción[Fecha envio]
+- Fechas[Fecha] → Producción[Fecha extracción]
+- Fechas[Fecha] → Producción[Fecha envío]
 
 ![Actividades a realizar.](./images/E1-3.png)
 
-## Crear visuales
+### Crear visuales
 
-Ahora que ya hemos generado algunas relaciones, es hora de poner a prueba los resultados usando unas tablas como referencia. Para ello genere una visualización de tabla e inserte los siguientes valores:
+Ahora que ya hemos generado algunas relaciones, es momento de poner a prueba los resultados usando visualizaciones de tabla como referencia.
 
+**Paso 1.** Inserta una visualización de tabla.
+
+**Paso 2.** Agrega los siguientes campos:
 * Fecha extracción
 * IDMina
 * Toneladas extraidas
 
-Asignele un titulo, esta primer tabla la conoceremos como Tabla Eelación - Fecha extracción.
+**Paso 3.** Asígnale el siguiente título: **Tabla Eelación - Fecha extracción**.
 
-Copie la tabla y peguela, modificando los campos para ahora incluir los siguientes:
+**Paso 4.** Copia la tabla anterior y pégala.
 
+**Paso 5.** Modifica los campos para mostrar:
 * Fecha envio
 * IDMina
 * Toneladas extraidas
 
-Asignele el titulo correspondiente.
-
+**Paso 6.** Asígnale el título correspondiente.
 ![Actividades a realizar.](./images/E1-4.png)
 
-## Crear medidas
+### Crear medidas
 
-Ahora que tenemos la tabla que contiene los datos considerando la fecha de extracción y la de envio respectivamente, lo que buscamos ahora es crear dos medidas, estas medidas nos permitiran ver la información de la suma de lo que se ha extraido una usando la relacion predeterminada y otra usando la relación apagada.
+Ahora que ya tenemos las tablas que contienen los datos considerando la Fecha de extracción y la Fecha de envío, lo que buscamos es crear dos medidas. Estas medidas nos permitirán ver la suma de lo extraído: una utilizando la relación predeterminada y otra utilizando la relación inactiva.
 
-Usaremos cada metrica con la tabla que es su contra parte, es decir la medida que usa la fecha de envio la usaremos en la tabla de extracción y viceversa.
+Usaremos cada métrica con la tabla que es su contraparte, es decir, la medida que utiliza la Fecha de envío se aplicará en la tabla de extracción, y la medida que utiliza la Fecha de extracción se aplicará en la tabla de envío.
 
-> Dependiendo como este intentando crear la medida, o le devolvera los mismos resultados que ya tiene (la medida sigue obteniendo filtros que hacen que los calculos sean exactamente los mismos) o bien una serie de resultados dependiendo que filtro haya decidido mantener.
+> Dependiendo de cómo intentes crear la medida, puede que te devuelva los mismos resultados (si sigue recibiendo los mismos filtros), o bien una serie distinta de resultados, dependiendo de qué filtro hayas decidido mantener.
 
-Tome por ejemplo la siguiente imagen de referencia donde se han quitado los filtros de las fechas, resumiendo el contenido de acuerdo con el IDMina.
+Toma como ejemplo la siguiente imagen de referencia, donde se han quitado los filtros de las fechas, resumiendo el contenido de acuerdo con el IDMina.
 
 ![Actividades a realizar.](./images/E1-5.png)
 
-Ahora le piden agregar las siguientes relaciones:
+Ahora te piden agregar las siguientes relaciones:
 
-* Minas [Fecha apertura] - Fechas[Fecha]
-
-* Minas [Fecha ultimo accidente] - Fechas [Fecha]
+- Minas [Fecha de apertura] – Fechas [Fecha]
+- Minas [Fecha del último accidente] – Fechas [Fecha]
 
 ![Actividades a realizar.](./images/E1-6.png)
 
-Estas dos relaciones nos podrian ayudar para hacer analisis de productividad desde la fecha de creación o bien datos de seguridad desde el ultimo accidente o antes del ultimo accidente.
+Estas dos relaciones podrían ayudarnos a hacer análisis de productividad desde la fecha de creación, o bien, análisis de seguridad desde el último accidente o antes de este.
 
-Por ello le piden elaborar otra medida:
+Por ello, te piden elaborar otra medida:
 
-* Esta medida será usada con el objetivo de medir la cantidad de Toneladas extraidas desde la fecha de creación de la mina.
+- Esta medida se usará con el objetivo de calcular la cantidad de toneladas extraídas desde la fecha de creación de la mina.
 
 ![Actividades a realizar.](./images/E1-7.png)
 
 ![Actividades a realizar.](./images/E1-8.png)
+
+---
+
+**[Lista general 🗂️](https://netec-mx.github.io/PBI_ADV-Priv/)** | **[Siguiente ➡️](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio2.html)**
+
+---
