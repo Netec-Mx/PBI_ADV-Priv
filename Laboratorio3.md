@@ -1,80 +1,100 @@
-# Laboratorio #3: Aplicar RLS sobre un modelo y optimizar consultas lentas con análisis de rendimiento
+# Práctica 3. Aplicar RLS sobre un modelo y optimizar consultas lentas con análisis de rendimiento
 
-## Planteamiento del ejercicio.
+## 📝 Planteamiento de la práctica:
+Como parte de las actividades de analista de Power BI, te piden crear roles dentro de un modelo para impedir que la información sea visible para todos en la organización, y que de esta manera podamos tener un control más granular sobre la información.
 
-> Como parte de las actividades de analista de Power BI, le piden crear roles dentro de un modelo para impedir que la información sea visible para todos en la organización y que de esta manera, podamos tener un control mas granular para la información. Ademas de ello le piden revisar el desempeño general de un informe, con el objetivo de poder identificar posibles cuellos de botella o consultas que puedan ser optimizadas.
+Además de ello, te solicitan revisar el desempeño general de un informe, con el objetivo de identificar posibles cuellos de botella o consultas que puedan ser optimizadas.
 
-## Objetivo
+## 🎯 Objetivos:
+Al finalizar la práctica, serás capaz de:
+- Implementar RLS y modificar expresiones DAX que no estén optimizadas.
 
-> Implementar RLS y modificar expresiones DAX que no esten optimisadas.
+## 🕒 Duración aproximada:
+- 70 minutos.
 
-## Tiempo estimado
-
-> Dependiendo la experiencia previa que tenga Power BI, puede que algunas de las actividades le resulten conocidas, permitiendo que elabore esta actividad en una menor cantidad de tiempo, en caso contrario, puede llegar a tomarle hasta 70 minutos para poder realizar este ejercicio de forma exitosa.
-
-## Actividades a realizar
+## 🔍 Objetivo visual:
 
 ![Actividades a realizar.](./images/Diagrama%20Ejercicio%203.png)
 
-## Explorar los datos.
+---
 
-Comience abriendo el archivo denominado RLS y DAX que se encuentra dentro de la maquina virtual en la carpeta documentos. Una vez acceda al archivo, explore el contenido de este archivo, navegue y vea la información que esta disponible.
+**[⬅️ Atrás](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio2.html)** | **[🗂️ Lista general](https://netec-mx.github.io/PBI_ADV-Priv/)** | **[Siguiente ➡️](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio4.html)**
+
+---
+
+## Instrucciones:
+
+### Tarea 1. Explorar los datos.
+
+**Paso 1.** Comienza abriendo el archivo denominado "RLS y DAX", que se encuentra dentro de la máquina virtual, en la carpeta Documentos.
+
+**Paso 2.** Una vez accedas al archivo, explora su contenido: navega por él y revisa la información disponible.
 
 ![Actividades a realizar.](./images/E3-1.png)
 
-Apartir de sus observaciones, le piden aplicar en primer lugar una serie de roles para que, dependiendo la persona a la que le esten otorgando dicho rol, solamente pueda ver la información de un determinado grupo, fuera de eso, no deberia poder información de los otros grupos.
+**Paso 3.** A partir de tus observaciones, te piden aplicar, en primer lugar, una serie de roles para que, dependiendo de la persona a la que se le otorgue dicho rol, solo pueda ver la información de un grupo determinado. Fuera de eso, no debería poder visualizar información de los otros grupos.
 
-## Crear Roles
+## Tarea 2. Crear roles.
 
-Con esto en mente, le piden crear 3 roles para representar cada uno de estos grupos.
+**Paso 1.** Con esto en mente, te piden crear tres roles para representar a cada uno de los siguientes grupos:
 
-* America
+* América
 * Europa
-* Pacifico
+* Pacífico
 
-Pruebe cada uno de estos roles y observe que información queda disponible con cada uno de ellos.
+**Paso 2.** Prueba cada uno de estos roles y observa qué información queda disponible con cada uno de ellos.
 
-> Puede guiarse de la siguiente imagen como referencia.
+> *💡 **Nota:** Puedes guiarte con la siguiente imagen como referencia.*
 
 ![Actividades a realizar.](./images/E3-2.png)
 
-Si bien esta primer aproximación resulta util para poder filtrar el contenido dependiendo el grupo al que le vende uno de los vendedores, se da cuenta que los vendedores suelen vender a mas de un territorio por lo que seguir implementando este enfoque "estatico" quizas no sea lo mas conveniente. 
+Si bien esta primera aproximación resulta útil para filtrar el contenido según el grupo al que le vende uno de los vendedores, te das cuenta de que los vendedores suelen vender a más de un territorio. Por lo tanto, seguir implementando este enfoque "estático" quizás no sea lo más conveniente.
 
-Por lo que le piden crear un nuevo rol, este nuevo rol debe filtrar de forma dinamica con base al correo electronico del usuario, de forma tal que solamente vea la información relacionada con este usuario, este rol de momento solamente filtrara la información de las tablas Salesperson y Salesperson Performance.
+**Paso 3.** Por ello, te piden crear un nuevo rol. Este nuevo rol debe filtrar de forma dinámica con base en el correo electrónico del usuario, de modo que solo vea la información relacionada con él.
 
-Vuelva a ver el contenido del reporte, observe que ahora el contenido se muestra unicamente cuando el correo del usuario coincide con el del usuario que ha iniciado sesión. Este tipo de filtrado dinamico lo podremos usar para poder filtrar otras tablas y el contenido de forma dinamica.
+Este rol, por el momento, solo filtrará la información de las tablas **Salesperson** y **Salesperson Performance**.
 
-Dependiendo las expresiones DAX que sean utilizadas se podrá filtrar la información de maneras mas complejas a las que anteriormente nos solicitaron, por ejemplo en lugar de obtener el UPN, hacer busquedas con los valores que tenemos en nuestras tablas (por ejemplo el ID de los empleados) se podrán construir este tipo de expresiones.
+**Paso 4.** Vuelve a revisar el contenido del reporte y observa que ahora la información se muestra únicamente cuando el correo del usuario coincide con el del usuario que ha iniciado sesión.
 
-## Explorar el rendimiento
+Este tipo de filtrado dinámico lo puedes utilizar para aplicar filtros en otras tablas y controlar el contenido de manera más flexible.
 
-Dejando de momento lo anterior, ahora le piden examinar el desempeño del reporte, por lo que es necesario comenzar a grabar los tiempos de respuesta dentro de las paginas del reporte y poder detectar posibles cuellos de botella.
+Dependiendo de las expresiones DAX que utilices, podrás filtrar la información de formas más complejas que las que se te solicitaron anteriormente.
 
-Para obtener una medicion correcta, primero genere una nueva pagina en blanco y situela como la primer imagen del reporte.
+Por ejemplo, en lugar de obtener el UPN, podrías hacer búsquedas con los valores que ya existen en tus tablas (como el ID de los empleados). Así, podrás construir expresiones personalizadas para cumplir con distintas necesidades de filtrado.
+
+### Tarea 3. Explorar el rendimiento.
+
+Dejando de lado lo anterior, ahora te piden examinar el desempeño del reporte, por lo que es necesario comenzar a registrar los tiempos de respuesta dentro de las páginas del informe, con el fin de detectar posibles cuellos de botella.
+
+Para obtener una medición precisa:
+
+**Paso 1.** Genera una nueva página en blanco y ubícala como la primera página del reporte.
 
 ![Actividades a realizar.](./images/E3-3.png)
 
-Ahora vaya a los ajustes de Power BI
+**Paso 2.** Luego, ve a los ajustes de Power BI.
 
 ![Actividades a realizar.](./images/E3-4.png)
 
-Borre todos los datos en cache que actualmente tiene Power BI.
+**Paso 3.** Borra todos los datos en caché que Power BI tenga almacenados actualmente.
 
 ![Actividades a realizar.](./images/E3-5.png)
 
-Ahora guarde los cambios que ha realizado y proceda a cerrar Power BI Desktop. Esto con el objetivo de efectivamente cuando vuelva a abrir el reporte, los tiempos de carga sean lo mas limpios posibles y no se use contenido en cache.
+**Paso 4.** Ahora guarda los cambios que realizaste y procede a cerrar Power BI Desktop. Esto tiene como objetivo que, al volver a abrir el reporte, los tiempos de carga sean lo más limpios posibles y no se utilice contenido almacenado en caché.
 
-Cuando termine de abrir de nuevo Power BI Desktop habilite el analizador de rendimiento y navegue entre las paginas y observe los resultados arrojados.
+**Paso 5.** Una vez que vuelvas a abrir Power BI Desktop, habilita el Analizador de rendimiento, navega entre las distintas páginas del reporte y observa los resultados que se van generando.
 
-> En la imagen se observan los datos de referencia cuando se hizo este primer analisis en la pagina Overview, los datos pueden variar a los que usted obtenga.
+> *💡 **Nota:** En la imagen se muestran los datos de referencia obtenidos durante el primer análisis en la página Overview. Ten en cuenta que los datos pueden variar respecto a los que tú obtengas.*
 
 ![Actividades a realizar.](./images/E3-6.png)
 
-Despues de interactuar y observar los resultados, no deberia tener ningun resultado donde los tiempos de respuesta de DAX sean demasiado elevados (Recordemos que tiempos de respuesta de DAX mayores a 200 son elementos que potencialmente deberiamos modificar.)
+Después de interactuar y observar los resultados, no deberías tener ningún caso en el que los tiempos de respuesta de DAX sean demasiado elevados.
 
-Si bien en nuestra exploracion con el conjunto de datos parece no haber resultados que sean criticos para cambiar o corregir, eso no implica que las formulas usadas para calcular las medidas o las columnas sean lo mas correctas.
+Recuerda que tiempos de respuesta de DAX mayores a 200 ms son indicadores de elementos que potencialmente deberían ser optimizados.
 
-Por lo anterior vaya a la vista del modelo y explore las distintas medidas que estan disponibles.
+Si bien, en nuestra exploración con el conjunto de datos, no parecen existir resultados críticos que deban cambiarse o corregirse, esto no significa que las fórmulas utilizadas para calcular las medidas o columnas sean necesariamente las más correctas o eficientes.
+
+**Paso 6.** Por ello, dirígete a la vista del modelo y explora las distintas medidas que se encuentran disponibles.
 
 * Avg Price
 * Max Price
@@ -93,30 +113,42 @@ Por lo anterior vaya a la vista del modelo y explore las distintas medidas que e
 * Variance
 * Variance Margin
 
-Despues de observar los datos, deberia realizar algunos cambios en almenos 4 medidas. Los cambios serán principalmente sobre el uso de variables para optimizar ligeramente las consultas.
+**Paso 7.** Después de observar los datos, deberías realizar algunos cambios en al menos cuatro medidas.
 
-Pruebe de nuevo el desempeño para poder examinar que tanto impacto tuvo los cambios realizados con el desempeño del informe.
+Estos cambios estarán enfocados principalmente en el uso de variables, con el fin de optimizar ligeramente las consultas.
 
-## Publicación en Power BI
+**Paso 8.** Una vez aplicadas las modificaciones, prueba nuevamente el desempeño del informe para examinar qué tanto impacto tuvieron los cambios en el rendimiento general.
 
-Ya teniendo estos resultados listos y estando conformes con los resultados, ahora procederemos a publicar este reporte en el servicio de Power BI, por lo que será necesario iniciar sesión dentro de Power BI Desktop con la cuenta designada por su instructor para poder acceder.
+### Tarea 4. Publicación en Power BI.
 
-Es hora de iniciar sesión dentro de Power BI Service. Por lo que puede usar la siguiente liga para ingresar.
+**Paso 1.** Una vez que tengas estos resultados listos y estés conforme con ellos, procederás a publicar el reporte en el servicio de Power BI.
 
-https://app.powerbi.com/
+**Paso 2.** Para ello, será necesario iniciar sesión en Power BI Desktop con la cuenta designada por tu instructor, a fin de poder acceder al entorno correspondiente.
 
-Dentro del servicio de Power BI genere un area de trabajo, esta area de trabajo se denominara EjercioRLSXXXX donde cada X representan tus iniciales. Dentro de esta area de trabajo es donde subiras tu contenido.
+Es momento de iniciar sesión en Power BI Service, para lo cual puedes usar la siguiente liga:
 
-Una vez haya creado la area de trabajado proceda a subir el contendio al servicio de Power BI. 
+👉 [https://app.powerbi.com/](https://app.powerbi.com/)
 
-De nuevo en el servicio de Power BI,ahora configure la seguridad del modelo para poder fijar uno de los roles que acaba de crear a un usuario.
+**Paso 3.** Dentro del servicio de Power BI, genera un área de trabajo. Esta área de trabajo se denominará **EjercicioRLSXXXX**, donde cada X representa tus iniciales.
 
-> En la siguiente imagen se muestra un ejemplo de un usuario asignado a uno de los roles. Apartir de asignarle este rol, ahora ese usuario podra ver la información limitada siempre y cuando sea invitado como lector.
+Dentro de esta área de trabajo será donde subirás tu contenido.
+
+**Paso 4.** Una vez que hayas creado el área de trabajo, procede a subir el contenido al servicio de Power BI.
+
+**Paso 5.** Luego, nuevamente en el servicio de Power BI, configura la seguridad del modelo para poder asignar uno de los roles que acabas de crear a un usuario.
+
+> *💡 **Nota:** En la siguiente imagen se muestra un ejemplo de un usuario asignado a uno de los roles. A partir de asignarle este rol, ese usuario podrá ver únicamente la información limitada correspondiente, siempre y cuando haya sido invitado como lector.*
 
 ![Actividades a realizar.](./images/E3-7.png)
 
-Ahora que esta el rol asignado a un usuario, proceda a invitar a dicho usuario como miembro lector del area de trabajo.
+**Paso 6.** Ahora que el rol está asignado a un usuario, procede a invitar a dicho usuario como miembro lector del área de trabajo.
 
 ![Actividades a realizar.](./images/E3-8.png)
 
-Ahora deberia ser capaz de ver la información de forma "controlada" de acuerdo al rol que haya asignado.
+A partir de este momento, el usuario debería ser capaz de ver la información de forma "controlada", de acuerdo con el rol que le hayas asignado.
+
+---
+
+**[⬅️ Atrás](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio2.html)** | **[🗂️ Lista general](https://netec-mx.github.io/PBI_ADV-Priv/)** | **[Siguiente ➡️](https://netec-mx.github.io/PBI_ADV-Priv/Laboratorio4.html)**
+
+---
